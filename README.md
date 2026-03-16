@@ -1,32 +1,80 @@
-```markdown
----
+# TANZANIA'S URBAN MOBILITY CHALLENGE 🚍
+## Predict Peak Daladala Demand. Build Smarter Cities.
+Predict Peak Daladala Demand. Build Smarter Cities.
+This challenge asks you to build a machine learning model that predicts when a daladala route will reach peak demand.
 
-Suggested Models
+This is not theoretical and not toy data.
 
-Baseline:  
-- Logistic Regression  
+You will work with a national-scale urban mobility simulation dataset.
 
-Advanced models: 
-- Gradient Boosting  
-- XGBoost  
-- LightGBM  
-- Random Forest  
+Welcome to Juvaana.
 
-A good baseline should reach F1 ≈ 0.60+ 
-Strong competitors may exceed F1 > 0.80
+## Why This Matters 📊
 
----
+Urban transport inefficiency affects productivity and quality of life.
+Several factors influence mobility demand:
+Rush hour congestion costs time and economic output ,Rainfall changes commuter behavior,End-of-month salary cycles alter transport demand ,Population density drives route pressure
 
-Baseline Machine Learning Pipeline
+If we can accurately predict peak demand:
+Operators can optimize dispatch , Cities can reduce congestion,Transportation systems become smarter and data-driven
 
-Below is a starter pipeline including:
+This is how data transforms infrastructure.
 
-- Automated EDA
-- Feature encoding
-- Scaling
-- Logistic regression model
-- Validation with F1 score
-```
+## The Challenge
+
+You are provided with historical urban mobility simulation data from five Tanzanian cities:
+
+Dar es Salaam ,Mwanza,Arusha,Dodoma and Mbeya
+
+Each row represents a daladala route at a specific hour.
+
+## Your task:
+
+High demand  → peak = 1
+Normal demand → peak = 0
+
+The concept is simple.
+
+The modeling challenge is serious.
+
+## The Data
+
+Participants receive  two files:
+
+train.csv        → Features + target (peak)
+test.csv         → Features only
+
+
+Important signals in the dataset include:
+
+Morning rush hours (6–9 AM) ,Evening rush hours (4–8 PM)
+
+Higher demand intensity in Dar es Salaam ,Weather influencing commuter patterns
+
+Salary cycles affecting travel behavior ,Population density effects
+
+Real-world characteristics:
+
+Distribution shift between train and test data
+
+Noisy variables included
+
+Imperfect and messy data (just like real urban systems)
+
+## Evaluation Metric
+
+Submissions are evaluated using the F1 Score.
+
+F1 balances:
+
+Precision
+
+Recall
+
+This prevents models from simply predicting the majority class.
+
+Higher F1 Score → Better model
+Better model → Higher leaderboard ranking
 
 ### 1. Install Required Library
 ```bash
