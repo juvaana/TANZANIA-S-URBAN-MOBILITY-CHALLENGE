@@ -222,6 +222,13 @@ This competition includes learning resources:
 
 ---
 
+## Accesing the competition 
+```markdown
+You can access the competition at this site 
+(juvaana.com)
+
+```
+
 ## Final Question
 
 Are you ready to predict peak daladala demand and help design smarter Tanzanian cities? 🚍📈
