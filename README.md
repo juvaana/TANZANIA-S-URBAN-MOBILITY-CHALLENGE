@@ -63,7 +63,7 @@ Mbeya
 
 Each row represents:
 
-A daladala route at a specific hour
+A daladala route at a specific hour.
 
 Your task:
 
@@ -80,9 +80,9 @@ The Data
 
 Participants receive three files:
 
-train.csv   → Features + target (peak)
-test.csv    → Features only
-submission.csv → Your predictions
+train.csv        → Features + target (peak)
+test.csv         → Features only
+submission.csv   → Your predictions
 
 Important signals in the dataset include:
 
@@ -100,7 +100,7 @@ Population density effects
 
 Real-world characteristics:
 
-Distribution shift between train and test
+Distribution shift between training and test data
 
 Noisy variables included
 
@@ -122,7 +122,7 @@ Higher F1 Score → Better model
 Better model → Higher leaderboard ranking
 Submission Format
 
-Your submission must:
+Your submission must be named:
 
 submission.csv
 
@@ -283,8 +283,9 @@ Rainfall interaction variables
 
 City population density scaling
 
-These improvements can push the model toward F1 > 0.80.
+These improvements can push the model toward:
 
+F1 > 0.80
 Rewards 🏆
 
 This is Juvaana’s onboarding competition.
