@@ -31,6 +31,7 @@ Each row represents a daladala route at a specific hour.
 ## Your task:
 
 High demand  → peak = 1
+
 Normal demand → peak = 0
 
 The concept is simple.
@@ -42,6 +43,7 @@ The modeling challenge is serious.
 Participants receive  two files:
 
 train.csv        → Features + target (peak)
+
 test.csv         → Features only
 
 
@@ -74,6 +76,7 @@ Recall
 This prevents models from simply predicting the majority class.
 
 Higher F1 Score → Better model
+
 Better model → Higher leaderboard ranking
 
 ### 1. Install Required Library
