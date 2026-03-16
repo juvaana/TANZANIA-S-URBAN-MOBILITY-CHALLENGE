@@ -1,164 +1,23 @@
-TANZANIA'S URBAN MOBILITY CHALLENGE 🚍
-Predict Peak Daladala Demand. Build Smarter Cities.
-
-Tanzania’s cities move fast.
-Dar es Salaam never sleeps – Mwanza expands – Arusha grows – Dodoma builds – Mbeya connects.
-Yet urban transport demand remains unpredictable.
-
-This challenge asks you to build a machine learning model that predicts when a daladala route will reach peak demand.
-This is not theoretical and not toy data. You will work with a national‑scale urban mobility simulation dataset.
-
-Welcome to Juvaana.
-
-#Why This Matters 📊
-Urban transport inefficiency affects productivity and quality of life. Several factors influence mobility demand:
-
-Rush hour congestion – costs time and economic output
-
-Rainfall – changes commuter behaviour
-
-End‑of‑month salary cycles – alter transport demand
-
-Population density – drives route pressure
-
-If we can accurately predict peak demand:
-
-Operators can optimise dispatch
-
-Cities can reduce congestion
-
-Transportation systems become smarter and data‑driven
-
-This is how data transforms infrastructure.
-
-The Challenge
-You are provided with historical urban mobility simulation data from five Tanzanian cities:
-
-Dar es Salaam
-
-Mwanza
-
-Arusha
-
-Dodoma
-
-Mbeya
-
-Each row represents a daladala route at a specific hour.
-Your task:
-
-High demand → peak = 1
-
-Normal demand → peak = 0
-
-The concept is simple. The modelling challenge is serious.
-
-The Data
-Participants receive three files:
-
-File	Description
-train.csv	Features + target (peak)
-test.csv	Features only
-submission.csv	Your predictions (template provided)
-Important signals in the dataset include:
-
-Morning rush hours (6–9 AM)
-
-Evening rush hours (4–8 PM)
-
-Higher demand intensity in Dar es Salaam
-
-Weather influencing commuter patterns
-
-Salary cycles affecting travel behaviour
-
-Population density effects
-
-Real‑world characteristics:
-
-Distribution shift between train and test data
-
-Noisy variables included
-
-Imperfect and messy data (just like real urban systems)
-
-Evaluation Metric
-Submissions are evaluated using the F1 Score.
-
-F1 balances:
-
-Precision
-
-Recall
-
-This prevents models from simply predicting the majority class.
-
-Higher F1 Score → Better model
-
-Better model → Higher leaderboard ranking
-
 ```markdown
 ---
 
-## Submission Format
+Suggested Models
 
-Your submission must be named:
-
-```
-xyz(this is the submission file).csv
-```
-
-Contain exactly two columns:
-
-```
-id, peak
-```
-
-Example:
-
-```csv
-id,peak
-1,0
-2,1
-3,0
-```
-
-**Rules:**
-
-- IDs must match the test dataset
-- `peak` values must be **0** or **1** (no probabilities allowed)
-- Invalid formats are automatically rejected.
-
----
-
-## Strategy Tips
-
-Practical modelling advice:
-
-- Explore feature importance
-- Study city‑specific demand patterns
-- Investigate rainfall‑related demand shifts
-- Avoid overfitting noisy variables
-
----
-
-## Suggested Models
-
-**Baseline:**  
+Baseline:  
 - Logistic Regression  
 
-**Advanced models:**  
+Advanced models: 
 - Gradient Boosting  
 - XGBoost  
 - LightGBM  
 - Random Forest  
 
-A good baseline should reach **F1 ≈ 0.70+**  
-Strong competitors may exceed **F1 > 0.80**
+A good baseline should reach F1 ≈ 0.60+ 
+Strong competitors may exceed F1 > 0.80
 
 ---
 
-## Baseline Machine Learning Pipeline
+Baseline Machine Learning Pipeline
 
 Below is a starter pipeline including:
 
@@ -167,6 +26,7 @@ Below is a starter pipeline including:
 - Scaling
 - Logistic regression model
 - Validation with F1 score
+```
 
 ### 1. Install Required Library
 ```bash
