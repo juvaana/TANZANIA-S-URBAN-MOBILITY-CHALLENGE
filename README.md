@@ -1,247 +1,225 @@
-TANZANIA'S URBAN MOBILITY CHALLENGE 🚍
-Predict Peak Daladala Demand. Build Smarter Cities.
+```markdown
+# Tanzania's Urban Mobility Challenge 🚍
+## Predict Peak Daladala Demand. Build Smarter Cities.
 
-Tanzania’s cities move fast.
-
-Dar es Salaam never sleeps
-
-Mwanza expands
-
-Arusha grows
-
-Dodoma builds
-
-Mbeya connects
-
+Tanzania’s cities move fast.  
+Dar es Salaam never sleeps – Mwanza expands – Arusha grows – Dodoma builds – Mbeya connects.  
 Yet urban transport demand remains unpredictable.
 
-This challenge asks you to build a machine learning model that predicts when a daladala route will reach peak demand.
+This challenge asks you to build a machine learning model that predicts when a *daladala* route will reach peak demand.  
+This is not theoretical and not toy data. You will work with a national‑scale urban mobility simulation dataset.
 
-This is not theoretical and not toy data.
+Welcome to **Juvaana**.
 
-You will work with a national-scale urban mobility simulation dataset.
+---
 
-Welcome to Juvaana.
+## Why This Matters 📊
 
-Why This Matters 📊
+Urban transport inefficiency affects productivity and quality of life. Several factors influence mobility demand:
 
-Urban transport inefficiency affects productivity and quality of life.
-
-Several factors influence mobility demand:
-
-Rush hour congestion costs time and economic output
-
-Rainfall changes commuter behavior
-
-End-of-month salary cycles alter transport demand
-
-Population density drives route pressure
+- **Rush hour congestion** – costs time and economic output
+- **Rainfall** – changes commuter behaviour
+- **End‑of‑month salary cycles** – alter transport demand
+- **Population density** – drives route pressure
 
 If we can accurately predict peak demand:
 
-Operators can optimize dispatch
-
-Cities can reduce congestion
-
-Transportation systems become smarter and data-driven
+- Operators can optimise dispatch
+- Cities can reduce congestion
+- Transportation systems become smarter and data‑driven
 
 This is how data transforms infrastructure.
 
-The Challenge
+---
+
+## The Challenge
 
 You are provided with historical urban mobility simulation data from five Tanzanian cities:
 
-Dar es Salaam
+- Dar es Salaam
+- Mwanza
+- Arusha
+- Dodoma
+- Mbeya
 
-Mwanza
-
-Arusha
-
-Dodoma
-
-Mbeya
-
-Each row represents:
-
-A daladala route at a specific hour.
-
+Each row represents a daladala route at a specific hour.  
 Your task:
 
-Predict whether demand will be:
+- **High demand**  → `peak = 1`
+- **Normal demand** → `peak = 0`
 
-High demand  → peak = 1
-Normal demand → peak = 0
+The concept is simple. The modelling challenge is serious.
 
-The concept is simple.
+---
 
-The modeling challenge is serious.
-
-The Data
+## The Data
 
 Participants receive three files:
 
-train.csv        → Features + target (peak)
-test.csv         → Features only
-submission.csv   → Your predictions
+| File             | Description                         |
+|------------------|-------------------------------------|
+| `train.csv`      | Features + target (`peak`)          |
+| `test.csv`       | Features only                       |
+| `submission.csv` | Your predictions (template provided)|
 
 Important signals in the dataset include:
 
-Morning rush hours (6–9 AM)
+- Morning rush hours (6–9 AM)
+- Evening rush hours (4–8 PM)
+- Higher demand intensity in Dar es Salaam
+- Weather influencing commuter patterns
+- Salary cycles affecting travel behaviour
+- Population density effects
 
-Evening rush hours (4–8 PM)
+**Real‑world characteristics:**
 
-Higher demand intensity in Dar es Salaam
+- Distribution shift between train and test data
+- Noisy variables included
+- Imperfect and messy data (just like real urban systems)
 
-Weather influencing commuter patterns
+---
 
-Salary cycles affecting travel behavior
+## Evaluation Metric
 
-Population density effects
-
-Real-world characteristics:
-
-Distribution shift between training and test data
-
-Noisy variables included
-
-Imperfect and messy data (just like real urban systems)
-
-Evaluation Metric
-
-Submissions are evaluated using the F1 Score.
+Submissions are evaluated using the **F1 Score**.
 
 F1 balances:
 
-Precision
-
-Recall
+- **Precision**
+- **Recall**
 
 This prevents models from simply predicting the majority class.
 
-Higher F1 Score → Better model
-Better model → Higher leaderboard ranking
-Submission Format
+- Higher F1 Score → Better model
+- Better model → Higher leaderboard ranking
+
+---
+
+## Submission Format
 
 Your submission must be named:
 
+```
 submission.csv
+```
 
 Contain exactly two columns:
 
+```
 id, peak
-
-Rules:
-
-IDs must match the test dataset
-
-peak values must be 0 or 1
-
-No probabilities allowed
+```
 
 Example:
 
+```csv
 id,peak
 1,0
 2,1
 3,0
+```
 
-Invalid formats are automatically rejected.
+**Rules:**
 
-Strategy Tips
+- IDs must match the test dataset
+- `peak` values must be **0** or **1** (no probabilities allowed)
+- Invalid formats are automatically rejected.
 
-Practical modeling advice:
+---
 
-Explore feature importance
+## Strategy Tips
 
-Study city-specific demand patterns
+Practical modelling advice:
 
-Investigate rainfall-related demand shifts
+- Explore feature importance
+- Study city‑specific demand patterns
+- Investigate rainfall‑related demand shifts
+- Avoid overfitting noisy variables
 
-Avoid overfitting noisy variables
+---
 
-Suggested Models
+## Suggested Models
 
-Baseline:
+**Baseline:**  
+- Logistic Regression  
 
-Logistic Regression
+**Advanced models:**  
+- Gradient Boosting  
+- XGBoost  
+- LightGBM  
+- Random Forest  
 
-Advanced models:
+A good baseline should reach **F1 ≈ 0.70+**  
+Strong competitors may exceed **F1 > 0.80**
 
-Gradient Boosting
+---
 
-XGBoost
-
-LightGBM
-
-Random Forest
-
-A good baseline should reach:
-
-F1 ≈ 0.70+
-
-Strong competitors may exceed:
-
-F1 > 0.80
-Baseline Machine Learning Pipeline
+## Baseline Machine Learning Pipeline
 
 Below is a starter pipeline including:
 
-Automated EDA
+- Automated EDA
+- Feature encoding
+- Scaling
+- Logistic regression model
+- Validation with F1 score
 
-Feature encoding
-
-Scaling
-
-Logistic regression model
-
-Validation with F1 score
-
-Install Required Library
+### 1. Install Required Library
+```bash
 !pip install ydata-profiling
-Load Libraries
+```
+
+### 2. Load Libraries
+```python
 import pandas as pd
 import numpy as np
 from ydata_profiling import ProfileReport
-Load Dataset
+```
+
+### 3. Load Dataset
+```python
 train = pd.read_csv('train.csv')
 test = pd.read_csv('test.csv')
-Automated Exploratory Data Analysis (EDA)
-# Automatic EDA process
+```
+
+### 4. Automated Exploratory Data Analysis (EDA)
+```python
 # Generates an interactive report showing correlations,
 # distributions, missing values and statistical summaries
+profile = ProfileReport(train)
+profile.to_file("eda_report.html")
+```
+After downloading `eda_report.html`, you will have an interactive visualisation dashboard for dataset exploration.
 
-Profile = ProfileReport(train)
-Profile.to_file("eda_report.html")
-
-After downloading eda_report.html, you will have an interactive visualization dashboard for dataset exploration.
-
-Feature Engineering
-
-The dataset contains categorical features that must be encoded.
-
-Step 1: Identify Categorical Columns
+### 5. Feature Engineering
+```python
+# Step 1: Identify Categorical Columns
 cat_cols = ["city", "route_type", "noise_factor"]
-Step 2: One-Hot Encode Data
+
+# Step 2: One-Hot Encode Data
 train = pd.get_dummies(train, columns=cat_cols)
 test = pd.get_dummies(test, columns=cat_cols)
-Step 3: Align Train and Test Columns
+
+# Step 3: Align Train and Test Columns
 test = test.reindex(columns=train.columns.drop('peak'), fill_value=0)
 
 print("Train Columns:", train.columns)
 print("Test Columns:", test.columns)
-Feature Scaling
+```
+
+### 6. Feature Scaling
+```python
 from sklearn.preprocessing import StandardScaler
 
 numeric_col = train.select_dtypes(include='number').columns.drop('peak')
-
 print("Numerical columns to scale:", numeric_col)
 
-Scaler = StandardScaler()
+scaler = StandardScaler()
+scaler.fit(train[numeric_col])
+train[numeric_col] = scaler.transform(train[numeric_col])
+```
 
-Scaler.fit(train[numeric_col])
-
-train[numeric_col] = Scaler.transform(train[numeric_col])
-Train / Validation Split
+### 7. Train / Validation Split
+```python
 from sklearn.model_selection import train_test_split
 
 X = train.drop('peak', axis=1)
@@ -253,81 +231,82 @@ X_train, X_val, Y_train, Y_val = train_test_split(
     random_state=42,
     stratify=Y
 )
-Train Logistic Regression Model
+```
+
+### 8. Train Logistic Regression Model
+```python
 from sklearn.linear_model import LogisticRegression
 
 lr_model = LogisticRegression(max_iter=1000, random_state=42)
-
 lr_model.fit(X_train, Y_train)
-Evaluate Model
+```
+
+### 9. Evaluate Model
+```python
 from sklearn.metrics import f1_score, classification_report, confusion_matrix
 
 y_pred = lr_model.predict(X_val)
+print(f"F1 Score: {f1_score(Y_val, y_pred)}")
+```
 
-print(f1_score(Y_val, y_pred))
-Prepare Test Data for Prediction
+### 10. Prepare Test Data for Prediction
+```python
+# Ensure test has the same columns as training features
 test = test.reindex(columns=train.columns.drop('peak'), fill_value=0)
-Improving the Baseline
+```
+
+### Improving the Baseline
 
 You can improve model performance by:
 
-Feature importance analysis
+- Feature importance analysis
+- Removing noisy variables
+- Adding high‑impact mobility features such as:
+  - Hour‑based demand intensity
+  - Rainfall interaction variables
+  - City population density scaling
 
-Removing noisy variables
+These improvements can push the model toward **F1 > 0.80**.
 
-Adding high-impact mobility features such as:
+---
 
-Hour-based demand intensity
+## Rewards 🏆
 
-Rainfall interaction variables
-
-City population density scaling
-
-These improvements can push the model toward:
-
-F1 > 0.80
-Rewards 🏆
-
-This is Juvaana’s onboarding competition.
-
+This is Juvaana’s onboarding competition.  
 Top performers receive:
 
-Official Juvaana Data Explorer Badge
+- **Official Juvaana Data Explorer Badge**
+- **Verified digital certificate**
+- **Featured profile on the national leaderboard**
+- **Early access to future Juvaana competitions** (future competitions will include cash prizes)
 
-Verified digital certificate
+---
 
-Featured profile on the national leaderboard
-
-Early access to future Juvaana competitions
-
-Future competitions will include cash prizes.
-
-Rules
+## Rules
 
 To ensure fairness:
 
-External data is not allowed
+- External data is not allowed
+- Manual relabeling is prohibited
+- Reverse engineering test labels is forbidden
+- Collaboration is not allowed unless specified
+- Submissions are monitored for anomalies
 
-Manual relabeling is prohibited
+**Play fair. Compete hard.**
 
-Reverse engineering test labels is forbidden
+---
 
-Collaboration is not allowed unless specified
-
-Submissions are monitored for anomalies.
-
-Play fair. Compete hard.
-
-Beginner Friendly
+## Beginner Friendly
 
 This competition includes learning resources:
 
-Getting started with Juvaana competitions
+- Getting started with Juvaana competitions
+- Understanding the competition platform
+- Tutorials for new participants
 
-Understanding the competition platform
+---
 
-Tutorials for new participants
-
-Final Question
+## Final Question
 
 Are you ready to predict peak daladala demand and help design smarter Tanzanian cities? 🚍📈
+```
