@@ -174,6 +174,33 @@ print(f"F1 Score: {f1_score(Y_val, y_pred)}")
 test = test.reindex(columns=train.columns.drop('peak'), fill_value=0)
 ```
 
+### 11. Generate a Submission CSV file
+```python
+#Align test columns with training features.
+X_test = test.reindex(columns=train.columns.drop('peak'), fill_value=0)
+
+#Predict on test set (binary 0 or 1, not probabilities)
+test_preds = lr_model.predict(X_test)
+
+#Build submission DataFrame
+submission = pd.DataFrame({
+    'id': test['id'],          # preserve original IDs from test set
+    'peak': test_preds.astype(int)  # ensure values are int (0 or 1)
+})
+
+#Validate before saving
+assert submission.shape[1] == 2, "Must have exactly 2 columns"
+assert set(submission['peak'].unique()).issubset({0, 1}), "peak must be binary"
+assert submission['id'].is_unique, "IDs must be unique"
+
+#Save
+submission.to_csv('submission.csv', index=False)
+print("Submission saved!")
+print(submission.head())
+print(f"Shape: {submission.shape}")
+print(f"Peak distribution:\n{submission['peak'].value_counts()}")
+```
+
 ### Improving the Baseline
 
 You can improve model performance by:
