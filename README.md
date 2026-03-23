@@ -132,6 +132,9 @@ print("Numerical columns to scale:", numeric_col)
 scaler = StandardScaler()
 scaler.fit(train[numeric_col])
 train[numeric_col] = scaler.transform(train[numeric_col])
+
+#  Apply the same scaler to test (fit only on train)
+test[numeric_col] = scaler.transform(test[numeric_col])
 ```
 
 ### 7. Train / Validation Split
